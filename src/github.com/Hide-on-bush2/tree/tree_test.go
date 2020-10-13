@@ -1,6 +1,8 @@
 package tree
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestTree(t *testing.T) {
 	tree := Make_node(4)
@@ -35,6 +37,14 @@ func TestTree(t *testing.T) {
 		got := Postorder(tree)
 		if got != expected {
 			t.Errorf("expected '%q' but got '%q'", expected, got)
+		}
+	})
+
+	t.Run("find", func(t *testing.T) {
+		got := Find(9, tree)
+
+		if got != nil {
+			t.Errorf("expected nil but got real pointer")
 		}
 	})
 
